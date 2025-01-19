@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+body header {
+  max-width: 1200px;
+  margin: auto;
+}
+
+body header nav {
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .netflix-logo {
+  color: rgb(229 9 21);
+  font-size: 1.5rem;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login .select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  background: transparent;
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.select-wrapper .arrow {
+  font-size: 0.5rem;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.login a {
+  padding: 5.25px 15px;
+  background-color: rgb(229 9 21);
+  border-radius: 5px;
+}
+
+header .information {
+  padding: 0 2rem 2rem 2rem;
+}
+
+.information .info-container {
+  max-width: 31rem;
+  min-height: 31rem;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.information .title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.information p,
+.information h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+header .input-address {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.input-address input {
+  width: 100%;
+  color: #fff;
+  border: 1px solid #fff;
+  background: transparent;
+  border-radius: 5px;
+  padding: 1.25rem 1rem 0.25rem;
+  line-height: 1.5;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.input-address label {
+  position: absolute;
+  top: 12px;
+  left: 1rem;
+  color: #ccc;
+  font-size: 1rem;
+  transition: all 0.5s;
+}
+
+.input-address input:focus {
+  outline-offset: 2px;
+  outline: 2px solid #fff;
+}
+
+.input-address input:focus + label {
+  font-size: 0.8rem;
+  top: 5px;
+  pointer-events: none;
+}
+
+.input-address button {
+  flex-shrink: 0;
+  border: none;
+  background: rgb(229 9 21);
+  padding: 0.7rem 1.5rem;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-address button .bx {
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .information .info-container {
+    max-width: 25rem;
+  }
+
+  header .input-address {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .input-address input {
+    flex-grow: 1;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .information .info-container {
+    min-height: 37rem;
+  }
+
+  .information .title {
+    font-size: 2.5rem;
+  }
+
+  .information p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .information .info-container {
+    min-height: min(80vh, 45rem);
+  }
+
+  .information .info-container {
+    max-width: 35rem;
+  }
+
+  .information .title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .information p {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .information .info-container {
+    max-width: 40rem;
+  }
+
+  .information .title {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+}
