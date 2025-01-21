@@ -18,6 +18,7 @@ img {
 body {
   background-color: #000;
   color: #fff;
+  font-family: "Roboto";
 }
 
 body header {
@@ -45,7 +46,7 @@ nav .netflix-logo {
   gap: 10px;
 }
 
-.login .select-wrapper {
+.select-wrapper {
   position: relative;
 }
 
@@ -162,6 +163,116 @@ header .input-address {
   width: 1.5rem;
 }
 
+/* 現正熱播  */
+section.hot-now {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem 3rem 2rem;
+}
+
+section.hot-now h2 {
+  font-size: 1.125rem;
+}
+
+section.hot-now .select-container {
+  display: flex;
+  flex-direction: column;
+}
+
+section.hot-now .select-wrapper {
+  margin-top: 1rem;
+}
+
+section.hot-now .select-wrapper select {
+  width: 100%;
+  padding: 8px 36px 8px 12px;
+  font-size: 1rem;
+}
+
+section.hot-now .select-wrapper .arrow {
+  right: 16px;
+}
+
+/* 電影排行 */
+section.hot-now .movie-ranking {
+  flex: 1;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-ranking .ranks {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  /* padding: 0 36px; */
+}
+
+.movie-ranking .ranks .rank {
+  width: 7rem;
+  height: 9.8rem;
+  margin: 4.8px 10px;
+  border-radius: 5px;
+  background-color: rgb(80, 139, 159);
+  position: relative;
+}
+
+.movie-ranking .ranks .rank::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -0.5rem;
+  bottom: 0;
+
+  color: #000;
+  font-weight: 900;
+  font-size: 3.5rem;
+  text-shadow: 0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
+    0 0 3px rgb(213, 213, 213);
+}
+
+.movie-ranking .btn {
+  width: 2.25rem;
+  display: flex;
+  align-items: center;
+  background: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.movie-ranking .prev-btn {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.movie-ranking .next-btn {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.movie-ranking .btn.prev-btn--active {
+  display: none;
+}
+
+.movie-ranking .btn button {
+  background: rgb(26, 26, 26);
+  border: none;
+  padding: 3rem 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.movie-ranking .btn button img {
+  width: 24px;
+}
+
 @media screen and (min-width: 600px) {
   .information .info-container {
     max-width: 25rem;
@@ -178,6 +289,16 @@ header .input-address {
 }
 
 @media screen and (min-width: 960px) {
+  body header nav,
+  section.hot-now {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  nav .netflix-logo {
+    font-size: 3rem;
+  }
+
   .information .info-container {
     min-height: 37rem;
   }
@@ -188,6 +309,30 @@ header .input-address {
 
   .information p {
     margin-bottom: 1.5rem;
+  }
+
+  section.hot-now h2 {
+    font-size: 2rem;
+  }
+
+  section.hot-now .select-container {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  section.hot-now .select-wrapper select {
+    width: fit-content;
+  }
+
+  .movie-ranking .ranks .rank {
+    width: 8.75rem;
+    height: 12.25rem;
+    margin: 6.4px 22px;
+  }
+
+  .movie-ranking .ranks .rank::before {
+    font-size: 5rem;
+    left: -1.2rem;
   }
 }
 
@@ -207,6 +352,12 @@ header .input-address {
 
   .information p {
     margin-bottom: 2rem;
+  }
+
+  .movie-ranking .ranks .rank {
+    width: 11.25rem;
+    height: 15.75rem;
+    margin: 6.4px 22px;
   }
 }
 

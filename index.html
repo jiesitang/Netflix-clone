@@ -41,5 +41,55 @@
         </div>
       </div>
     </header>
+    <main>
+      <section class="hot-now">
+        <h2>現正熱播</h2>
+        <div class="select-container">
+          <div class="select-wrapper">
+            <select name="hot" id="hot">
+              <option value="taiwan">台灣</option>
+              <option value="global">全球</option>
+            </select>
+            <div class="arrow">
+              <img src="./images/down-arrow-solid.png" alt="下拉" />
+            </div>
+          </div>
+          <div class="select-wrapper">
+            <select name="type" id="type">
+              <option value="movie">電影</option>
+              <option value="program">節目</option>
+            </select>
+            <div class="arrow">
+              <img src="./images/down-arrow-solid.png" alt="下拉" />
+            </div>
+          </div>
+        </div>
+
+        <div class="movie-ranking">
+          <div class="btn prev-btn prev-btn--active">
+            <button>
+              <img src="./images/chevron-left-regular.png" alt="上一個" />
+            </button>
+          </div>
+          <div class="ranks">
+            <div class="rank" data-text="1"></div>
+            <div class="rank" data-text="2"></div>
+            <div class="rank" data-text="3"></div>
+            <div class="rank" data-text="4"></div>
+            <div class="rank" data-text="5"></div>
+            <div class="rank" data-text="6"></div>
+            <div class="rank" data-text="7"></div>
+            <div class="rank" data-text="8"></div>
+            <div class="rank" data-text="9"></div>
+            <div class="rank" data-text="10"></div>
+          </div>
+          <div class="btn next-btn">
+            <button>
+              <img src="./images/chevron-right-regular.png" alt="下一個" />
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
