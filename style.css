@@ -214,6 +214,11 @@ section.hot-now .movie-ranking {
   border-radius: 5px;
   background-color: rgb(80, 139, 159);
   position: relative;
+  transition: transform 0.3s;
+}
+
+.movie-ranking .ranks .rank:hover {
+  transform: scale(1.05);
 }
 
 .movie-ranking .ranks .rank::before {
@@ -224,7 +229,7 @@ section.hot-now .movie-ranking {
 
   color: #000;
   font-weight: 900;
-  font-size: 3.5rem;
+  font-size: 4rem;
   text-shadow: 0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
     0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
     0 0 3px rgb(213, 213, 213), 0 0 3px rgb(213, 213, 213),
@@ -245,21 +250,24 @@ section.hot-now .movie-ranking {
   top: 0;
   bottom: 0;
   z-index: 10;
+  transition: transform 0.5s;
 }
 
 .movie-ranking .prev-btn {
   left: 0;
   justify-content: flex-start;
+  transform: translateX(-100%);
 }
 
 .movie-ranking .next-btn {
   right: 0;
   justify-content: flex-end;
+  transform: translateX(100%);
 }
 
-.movie-ranking .btn.prev-btn--active {
-  display: none;
-}
+/* .movie-ranking .btn.btn--active {
+  transform: translateX(0);
+} */
 
 .movie-ranking .btn button {
   background: rgb(26, 26, 26);
@@ -358,6 +366,11 @@ section.hot-now .movie-ranking {
     width: 11.25rem;
     height: 15.75rem;
     margin: 6.4px 22px;
+  }
+
+  .movie-ranking .ranks .rank::before {
+    font-size: 6rem;
+    left: -1.2rem;
   }
 }
 
