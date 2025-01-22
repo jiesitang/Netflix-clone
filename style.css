@@ -194,10 +194,9 @@ section.hot-now .select-wrapper .arrow {
 
 /* 電影排行 */
 section.hot-now .movie-ranking {
-  flex: 1;
   margin-top: 1rem;
   position: relative;
-  overflow: scroll;
+  overflow-x: auto;
   scrollbar-width: none;
 }
 
