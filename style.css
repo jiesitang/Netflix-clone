@@ -163,7 +163,7 @@ header .input-address {
 }
 
 /* 現正熱播  */
-section.hot-now {
+section.container {
   margin: auto;
   padding: 0 2rem 3rem 2rem;
 }
@@ -280,10 +280,6 @@ section.hot-now .movie-ranking {
 }
 
 /* 好處說不完 */
-section.advantage-container {
-  margin: auto;
-  padding: 0 2rem 3rem 2rem;
-}
 
 section.advantage-container h2 {
   font-size: 1.125rem;
@@ -340,8 +336,7 @@ section.advantage-container .benefits .benefit {
 
 @media screen and (min-width: 960px) {
   body header nav,
-  section.hot-now,
-  section.advantage-container {
+  section.container {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -362,8 +357,7 @@ section.advantage-container .benefits .benefit {
     margin-bottom: 1.5rem;
   }
 
-  section.hot-now h2,
-  section.advantage-container h2 {
+  section.container h2 {
     font-size: 1.5rem;
     font-weight: 500;
   }
@@ -400,8 +394,7 @@ section.advantage-container .benefits .benefit {
 
 @media screen and (min-width: 1280px) {
   body header nav,
-  section.hot-now,
-  section.advantage-container {
+  section.container {
     padding-left: 8rem;
     padding-right: 8rem;
   }
@@ -458,15 +451,13 @@ section.advantage-container .benefits .benefit {
 
 @media screen and (min-width: 1920px) {
   body header nav,
-  section.hot-now,
-  section.advantage-container {
+  section.container {
     padding-left: 0;
     padding-right: 0;
   }
 
   body header,
-  section.hot-now,
-  section.advantage-container {
+  section.container {
     max-width: 1200px;
   }
 
@@ -479,8 +470,7 @@ section.advantage-container .benefits .benefit {
     margin-bottom: 1.5rem;
   }
 
-  section.hot-now h2,
-  section.advantage-container h2 {
+  section.container h2 {
     font-size: 2rem;
   }
 
