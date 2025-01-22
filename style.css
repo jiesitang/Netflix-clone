@@ -22,7 +22,6 @@ body {
 }
 
 body header {
-  max-width: 1200px;
   margin: auto;
 }
 
@@ -165,7 +164,6 @@ header .input-address {
 
 /* 現正熱播  */
 section.hot-now {
-  max-width: 1200px;
   margin: auto;
   padding: 0 2rem 3rem 2rem;
 }
@@ -281,6 +279,50 @@ section.hot-now .movie-ranking {
   width: 24px;
 }
 
+/* 好處說不完 */
+section.advantage-container {
+  margin: auto;
+  padding: 0 2rem 3rem 2rem;
+}
+
+section.advantage-container h2 {
+  font-size: 1.125rem;
+}
+
+section.advantage-container .benefits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+section.advantage-container .benefits .benefit {
+  padding: 1.5rem 1rem 1rem 1rem;
+  background: linear-gradient(135deg, #1a2042, #200f1c);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.benefits .benefit .content {
+  flex: 1;
+}
+
+.benefits .benefit .content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.7rem;
+}
+
+.benefits .benefit .content p {
+  margin-bottom: 0.7rem;
+}
+
+.benefits .benefit img {
+  width: 4rem;
+  align-self: flex-end;
+}
+
 @media screen and (min-width: 600px) {
   .information .info-container {
     max-width: 25rem;
@@ -298,7 +340,8 @@ section.hot-now .movie-ranking {
 
 @media screen and (min-width: 960px) {
   body header nav,
-  section.hot-now {
+  section.hot-now,
+  section.advantage-container {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -319,8 +362,10 @@ section.hot-now .movie-ranking {
     margin-bottom: 1.5rem;
   }
 
-  section.hot-now h2 {
-    font-size: 2rem;
+  section.hot-now h2,
+  section.advantage-container h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
   }
 
   section.hot-now .select-container {
@@ -342,9 +387,25 @@ section.hot-now .movie-ranking {
     font-size: 5rem;
     left: -1.2rem;
   }
+
+  section.advantage-container .benefits {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .benefits .benefit img {
+    width: 4.5rem;
+  }
 }
 
 @media screen and (min-width: 1280px) {
+  body header nav,
+  section.hot-now,
+  section.advantage-container {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
   .information .info-container {
     min-height: min(80vh, 45rem);
   }
@@ -372,15 +433,64 @@ section.hot-now .movie-ranking {
     font-size: 6rem;
     left: -1.2rem;
   }
+
+  section.advantage-container .benefits {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .benefits .benefit .content h3 {
+    font-size: 1.5rem;
+  }
+
+  .benefits .benefit .content h3 {
+    margin-bottom: 1rem;
+  }
+
+  .benefits .benefit:nth-child(even) .content h3 {
+    max-width: 190px;
+  }
+
+  .benefits .benefit .content p {
+    margin-bottom: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 1920px) {
+  body header nav,
+  section.hot-now,
+  section.advantage-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body header,
+  section.hot-now,
+  section.advantage-container {
+    max-width: 1200px;
+  }
+
   .information .info-container {
     max-width: 40rem;
   }
 
   .information .title {
     font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  section.hot-now h2,
+  section.advantage-container h2 {
+    font-size: 2rem;
+  }
+
+  .movie-ranking .ranks .rank {
+    width: 13.375rem;
+    height: 18.75rem;
+    margin: 8.8px 22px;
+  }
+
+  .benefits .benefit .content h3 {
     margin-bottom: 1.5rem;
   }
 }
