@@ -140,8 +140,8 @@ header .information {
 }
 
 .input-address input:focus + label {
-  font-size: 0.8rem;
-  top: 5px;
+  font-size: 0.6rem;
+  top: 8px;
   pointer-events: none;
 }
 
