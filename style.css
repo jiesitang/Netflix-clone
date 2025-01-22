@@ -196,18 +196,20 @@ section.hot-now .select-wrapper .arrow {
 section.hot-now .movie-ranking {
   margin-top: 1rem;
   position: relative;
+  overflow-x: hidden;
+}
+
+.movie-ranking .ranks {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  /* padding: 0 36px; */
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-section.hot-now .movie-ranking::-webkit-scrollbar {
+.movie-ranking .ranks::-webkit-scrollbar {
   display: none;
-}
-
-.movie-ranking .ranks {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  /* padding: 0 36px; */
 }
 
 .movie-ranking .ranks .rank {
