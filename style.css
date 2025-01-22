@@ -104,7 +104,7 @@ header .information {
   margin-bottom: 1rem;
 }
 
-header .input-address {
+.input-address {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -371,18 +371,37 @@ section.advantage-container .benefits .benefit {
   margin-top: 1rem;
 }
 
+/* email */
+.input-email {
+  text-align: left;
+}
+
+.input-email h3 {
+  font-size: 1rem;
+}
+
+.input-email .input-address {
+  position: relative;
+  margin-top: 1rem;
+  justify-content: flex-start;
+}
+
 @media screen and (min-width: 600px) {
   .information .info-container {
     max-width: 25rem;
   }
 
-  header .input-address {
+  .input-address {
     justify-content: space-between;
     flex-wrap: nowrap;
   }
 
   .input-address input {
     flex-grow: 1;
+  }
+
+  .input-email {
+    text-align: center;
   }
 }
 
@@ -449,6 +468,12 @@ section.advantage-container .benefits .benefit {
 
   .question-container ul li .ques img {
     width: 36px;
+  }
+
+  .input-email .input-address {
+    max-width: 49rem;
+    margin: auto;
+    margin-top: 1rem;
   }
 }
 
