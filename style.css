@@ -163,7 +163,8 @@ header .information {
 }
 
 /* 現正熱播  */
-section.container {
+section.container,
+footer {
   margin: auto;
   padding: 0 2rem 3rem 2rem;
 }
@@ -196,7 +197,8 @@ section.hot-now .movie-ranking {
   flex: 1;
   margin-top: 1rem;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 .movie-ranking .ranks {
@@ -386,6 +388,30 @@ section.advantage-container .benefits .benefit {
   justify-content: flex-start;
 }
 
+/* footer */
+footer a {
+  text-decoration: underline;
+  font-size: 0.875rem;
+  color: #b3b3b3;
+  display: block;
+  margin-top: 1rem;
+}
+
+footer > a {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+footer .link-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 3rem;
+}
+
+footer .select-wrapper {
+  max-width: fit-content;
+}
+
 @media screen and (min-width: 600px) {
   .information .info-container {
     max-width: 25rem;
@@ -403,11 +429,16 @@ section.advantage-container .benefits .benefit {
   .input-email {
     text-align: center;
   }
+
+  footer .link-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (min-width: 960px) {
   body header nav,
-  section.container {
+  section.container,
+  footer {
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -475,13 +506,17 @@ section.advantage-container .benefits .benefit {
     margin: auto;
     margin-top: 1rem;
   }
+
+  footer .link-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (min-width: 1280px) {
   body header nav,
-  section.container {
-    padding-left: 8rem;
-    padding-right: 8rem;
+  section.container,
+  footer {
+    padding: 0 8rem 5rem 8rem;
   }
 
   .information .info-container {
@@ -532,17 +567,23 @@ section.advantage-container .benefits .benefit {
   .benefits .benefit .content p {
     margin-bottom: 1.5rem;
   }
+
+  footer .link-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media screen and (min-width: 1920px) {
   body header nav,
-  section.container {
+  section.container,
+  footer {
     padding-left: 0;
     padding-right: 0;
   }
 
   body header,
-  section.container {
+  section.container,
+  footer {
     max-width: 1200px;
   }
 
