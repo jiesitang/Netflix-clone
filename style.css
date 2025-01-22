@@ -294,7 +294,7 @@ section.advantage-container .benefits {
 
 section.advantage-container .benefits .benefit {
   padding: 1.5rem 1rem 1rem 1rem;
-  background: linear-gradient(135deg, #1a2042, #200f1c);
+  background: linear-gradient(135deg, #1a2042, #1e1629, #220e17);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -312,6 +312,7 @@ section.advantage-container .benefits .benefit {
 
 .benefits .benefit .content p {
   margin-bottom: 0.7rem;
+  line-height: 1.5;
 }
 
 .benefits .benefit img {
