@@ -201,6 +201,10 @@ section.hot-now .movie-ranking {
   scrollbar-width: none;
 }
 
+section.hot-now .movie-ranking::-webkit-scrollbar {
+  display: none;
+}
+
 .movie-ranking .ranks {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
