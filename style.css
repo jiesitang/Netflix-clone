@@ -382,10 +382,6 @@ section.advantage-container .benefits .benefit {
   transition: all 0.3s;
 }
 
-.question-container ul li .ques img.active {
-  transform: rotate(45deg);
-}
-
 .question-container ul li .ans {
   max-height: 0;
   width: 100%;
@@ -398,9 +394,13 @@ section.advantage-container .benefits .benefit {
   padding: 24px;
 }
 
-.question-container ul li .ans.ques--active {
+.question-container ul li .ques.ques--active + .ans {
   max-height: 500px;
   transition: max-height 0.5s ease-in;
+}
+
+.question-container ul li .ques.ques--active > img {
+  transform: rotate(45deg);
 }
 
 .question-container ul li .ans p {

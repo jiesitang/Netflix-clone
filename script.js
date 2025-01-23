@@ -1,26 +1,19 @@
 const quesBtn = document.querySelectorAll("li .ques");
-const ansContent = document.querySelectorAll("li .ans");
-const quesImg = document.querySelectorAll("li .ques img");
 
 let lastQues = null;
-function quesHandler(e) {
+function questionHandler(e) {
   e.preventDefault();
-  if (lastQues == this.nextElementSibling) {
-    lastQues.classList.toggle("ques--active");
+  if (lastQues == this) {
+    this.classList.toggle("ques--active");
   } else {
-    ansContent.forEach((content) => {
-      content.classList.remove("ques--active");
-    });
-    quesImg.forEach((img) => {
-      img.classList.remove("active");
+    quesBtn.forEach((btn) => {
+      btn.classList.remove("ques--active");
     });
 
-    this.nextElementSibling.classList.add("ques--active");
+    this.classList.add("ques--active");
   }
 
-  this.querySelector("img").classList.toggle("active");
-
-  lastQues = this.nextElementSibling;
+  lastQues = this;
 }
 
-quesBtn.forEach((btn) => btn.addEventListener("click", quesHandler));
+quesBtn.forEach((btn) => btn.addEventListener("click", questionHandler));
