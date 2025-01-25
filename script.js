@@ -57,12 +57,12 @@ nextBtn.addEventListener("click", nextRank);
 
 // 紀錄是否正在觀察
 let isObserving = false;
-let startBtnActive = false;
-function resizeHandler() {
-  startBtn.classList.remove("start-btn--active");
 
+function resizeHandler() {
   // 大於600不觀察
   if (window.innerWidth > 600) {
+    // 大於600清除active
+    startBtn.classList.remove("start-btn--active");
     if (isObserving) {
       stopObserving();
     }
@@ -75,37 +75,37 @@ function resizeHandler() {
   }
 }
 
-function startBtnHandler(entries) {
-  const [entry] = entries;
-  console.log(entry);
-  if (entry.isIntersecting) {
-    startBtn.classList.remove("start-btn--active");
-    // startBtnActive = false;
-  } else {
-    startBtn.classList.add("start-btn--active");
-    // startBtnActive = true;
-  }
+function startBtnHandler() {
+  // 取得視窗的頂部與底部位置
+  const windowTop = 0;
+  const windowBottom = window.innerHeight;
+
+  inputEmail.forEach((input) => {
+    const rect = input.getBoundingClientRect();
+
+    if (Math.floor(rect.bottom) <= windowTop) {
+      // 當元素的底部超過視窗頂部
+      startBtn.classList.add("start-btn--active");
+    } else if (Math.floor(rect.top) < windowBottom) {
+      // 當元素的頂部進入視窗
+      startBtn.classList.remove("start-btn--active");
+    }
+  });
 }
 
-const observer = new IntersectionObserver(startBtnHandler, {
-  root: null,
-  threshold: 0.0,
-});
-
-// 啟動觀察
+// 啟動 EventListener
 function startObserving() {
-  inputEmail.forEach((input) => observer.observe(input));
+  window.addEventListener("scroll", startBtnHandler);
   isObserving = true;
 }
 
-// 停止觀察
+// 移除 EventListener
 function stopObserving() {
-  inputEmail.forEach((input) => observer.unobserve(input));
+  window.removeEventListener("scroll", startBtnHandler);
   isObserving = false;
 }
 
 window.addEventListener("resize", resizeHandler);
-
 resizeHandler();
 
 // 常見問題手風琴功能
