@@ -41,7 +41,7 @@ function prevRank() {
     Math.floor(ranks.clientWidth / rankWidth) * rankWidth -
     (ranks.scrollLeft + ranks.clientWidth >= ranks.scrollWidth ? 26 : 0);
   // 如果滑動到最右邊就 -36+10 否則 -0
-  // 36為btn的寬度 +10為單邊的margin
+  // 36為btn的寬度 +10為單邊margin
 }
 function nextRank() {
   ranks.scrollLeft +=
@@ -56,57 +56,57 @@ prevBtn.addEventListener("click", prevRank);
 nextBtn.addEventListener("click", nextRank);
 
 // 紀錄是否正在觀察
-// let isObserving = false;
-// let startBtnActive = false;
-// function resizeHandler() {
-//   startBtn.classList.remove("start-btn--active");
+let isObserving = false;
+let startBtnActive = false;
+function resizeHandler() {
+  startBtn.classList.remove("start-btn--active");
 
-//   // 大於600不觀察
-//   if (window.innerWidth > 600) {
-//     if (isObserving) {
-//       stopObserving();
-//     }
-//     return;
-//   }
+  // 大於600不觀察
+  if (window.innerWidth > 600) {
+    if (isObserving) {
+      stopObserving();
+    }
+    return;
+  }
 
-//   // 小於等於600且尚未觀察 啟動觀察
-//   if (!isObserving) {
-//     startObserving();
-//   }
-// }
+  // 小於等於600且尚未觀察 啟動觀察
+  if (!isObserving) {
+    startObserving();
+  }
+}
 
-// function startBtnHandler(entries) {
-//   const [entry] = entries;
-//   console.log(entry);
-//   if (entry.isIntersecting) {
-//     startBtn.classList.remove("start-btn--active");
-//     // startBtnActive = false;
-//   } else {
-//     startBtn.classList.add("start-btn--active");
-//     // startBtnActive = true;
-//   }
-// }
+function startBtnHandler(entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (entry.isIntersecting) {
+    startBtn.classList.remove("start-btn--active");
+    // startBtnActive = false;
+  } else {
+    startBtn.classList.add("start-btn--active");
+    // startBtnActive = true;
+  }
+}
 
-// const observer = new IntersectionObserver(startBtnHandler, {
-//   root: null,
-//   threshold: 0.0,
-// });
+const observer = new IntersectionObserver(startBtnHandler, {
+  root: null,
+  threshold: 0.0,
+});
 
-// // 啟動觀察
-// function startObserving() {
-//   inputEmail.forEach((input) => observer.observe(input));
-//   isObserving = true;
-// }
+// 啟動觀察
+function startObserving() {
+  inputEmail.forEach((input) => observer.observe(input));
+  isObserving = true;
+}
 
-// // 停止觀察
-// function stopObserving() {
-//   inputEmail.forEach((input) => observer.unobserve(input));
-//   isObserving = false;
-// }
+// 停止觀察
+function stopObserving() {
+  inputEmail.forEach((input) => observer.unobserve(input));
+  isObserving = false;
+}
 
-// window.addEventListener("resize", resizeHandler);
+window.addEventListener("resize", resizeHandler);
 
-// resizeHandler();
+resizeHandler();
 
 // 常見問題手風琴功能
 let lastQues = null;
