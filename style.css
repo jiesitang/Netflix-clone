@@ -22,12 +22,24 @@ body {
 }
 
 body header {
-  margin: auto;
+  width: 100%;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 1)
+    ),
+    url(./images/Netflix-Hintergrund.webp);
+  background-size: cover;
+  background-position: center;
 }
 
 body header nav {
+  margin: auto;
   padding: 1rem 1.5rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -512,7 +524,7 @@ footer .select-wrapper {
   }
 
   .information .info-container {
-    min-height: 37rem;
+    min-height: 35rem;
   }
 
   .information .title {
@@ -586,9 +598,9 @@ footer .select-wrapper {
     padding: 1rem 8rem 6rem 8rem;
   }
 
-  .information .info-container {
+  /* .information .info-container {
     min-height: min(80vh, 45rem);
-  }
+  } */
 
   .information .info-container {
     max-width: 35rem;
@@ -648,7 +660,7 @@ footer .select-wrapper {
     padding-right: 0;
   }
 
-  body header,
+  body header nav,
   section.container,
   footer {
     max-width: 1200px;
