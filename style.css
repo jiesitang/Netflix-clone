@@ -421,12 +421,17 @@ section.advantage-container .benefits .benefit {
 }
 
 /* footer */
+footer {
+  margin: auto;
+  padding: 0 2rem 6rem 2rem;
+}
+
 footer a {
   text-decoration: underline;
   font-size: 0.875rem;
   color: #b3b3b3;
   display: block;
-  margin-top: 1rem;
+  line-height: 2.3;
 }
 
 footer > a {
@@ -573,9 +578,12 @@ footer .select-wrapper {
 
 @media screen and (min-width: 1280px) {
   body header nav,
-  section.container,
-  footer {
+  section.container {
     padding: 1rem 8rem 5rem 8rem;
+  }
+
+  footer {
+    padding: 1rem 8rem 6rem 8rem;
   }
 
   .information .info-container {

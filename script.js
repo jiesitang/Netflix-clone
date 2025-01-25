@@ -39,9 +39,9 @@ const rankWidth = document.querySelector(".rank").offsetWidth + 20;
 function prevRank() {
   ranks.scrollLeft -=
     Math.floor(ranks.clientWidth / rankWidth) * rankWidth -
-    (ranks.scrollLeft + ranks.clientWidth >= ranks.scrollWidth ? 36 : 0);
-  // 如果滑動到最右邊就 -36 否則 -0
-  // 36為btn的寬度
+    (ranks.scrollLeft + ranks.clientWidth >= ranks.scrollWidth ? 26 : 0);
+  // 如果滑動到最右邊就 -36+10 否則 -0
+  // 36為btn的寬度 +10為單邊的margin
 }
 function nextRank() {
   ranks.scrollLeft +=
