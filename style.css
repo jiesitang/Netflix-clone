@@ -421,7 +421,7 @@ section.advantage-container .benefits .benefit {
 }
 
 /* email */
-.input-email {
+section.input-email {
   text-align: left;
 }
 
@@ -430,6 +430,7 @@ section.advantage-container .benefits .benefit {
 }
 
 .input-email .input-address {
+  padding-bottom: 3rem;
   position: relative;
   margin-top: 1rem;
   justify-content: flex-start;
@@ -473,9 +474,9 @@ footer .select-wrapper {
   bottom: 0;
   z-index: 50;
   background: linear-gradient(transparent, #000, #000);
-  opacity: 0;
   transform: translateY(100%);
-  transition: all 0.3s;
+  opacity: 0;
+  transition: transform 0.3s;
 }
 
 .start-btn.start-btn--active {
@@ -508,7 +509,7 @@ footer .select-wrapper {
     flex-grow: 1;
   }
 
-  .input-email {
+  section.input-email {
     text-align: center;
   }
 

@@ -68,7 +68,6 @@ function throttle(func, delay) {
 let isObserving = false;
 
 function resizeHandler() {
-  console.log("111");
   // 大於600不觀察
   if (window.innerWidth > 600) {
     // 大於600清除active
