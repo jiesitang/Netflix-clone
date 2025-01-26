@@ -473,11 +473,13 @@ footer .select-wrapper {
   bottom: 0;
   z-index: 50;
   background: linear-gradient(transparent, #000, #000);
+  opacity: 0;
   transform: translateY(100%);
-  transition: transform 0.3s;
+  transition: all 0.3s;
 }
 
 .start-btn.start-btn--active {
+  opacity: 1;
   transform: translateY(0);
 }
 
