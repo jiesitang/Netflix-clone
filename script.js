@@ -55,6 +55,14 @@ ranks.addEventListener("scroll", btnRankHandler);
 prevBtn.addEventListener("click", prevRank);
 nextBtn.addEventListener("click", nextRank);
 
+function throttle(func, delay) {
+  let lastTime = 0;
+  return function (...args) {
+    const now = new Date().getTime();
+    if (now - lastTime >= delay) func(...args);
+    lastTime = now;
+  };
+}
 // 紀錄是否正在觀察
 let isObserving = false;
 
@@ -95,7 +103,8 @@ function startBtnHandler() {
 
 // 啟動 EventListener
 function startObserving() {
-  window.addEventListener("scroll", startBtnHandler);
+  const throttleHandler = throttle(startBtnHandler, 20);
+  window.addEventListener("scroll", throttleHandler);
   isObserving = true;
 }
 
@@ -105,7 +114,8 @@ function stopObserving() {
   isObserving = false;
 }
 
-window.addEventListener("resize", resizeHandler);
+const throttleHandler = throttle(resizeHandler, 100);
+window.addEventListener("resize", throttleHandler);
 resizeHandler();
 
 // 常見問題手風琴功能
