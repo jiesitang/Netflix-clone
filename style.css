@@ -133,7 +133,7 @@ header .information {
   width: 100%;
   color: #fff;
   border: 1px solid #fff;
-  background: transparent;
+  background: #121213;
   border-radius: 5px;
   padding: 1.25rem 1rem 0.25rem;
   line-height: 1.5;
@@ -142,7 +142,7 @@ header .information {
 }
 
 .input-address label {
-  line-height: 45.99px;
+  line-height: 46px;
   position: absolute;
   top: 0;
   left: 1rem;
