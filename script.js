@@ -55,6 +55,7 @@ ranks.addEventListener("scroll", btnRankHandler);
 prevBtn.addEventListener("click", prevRank);
 nextBtn.addEventListener("click", nextRank);
 
+// 節流降地事件觸發頻率 減緩效能
 function throttle(func, delay) {
   let lastTime = 0;
   return function (...args) {
@@ -67,6 +68,7 @@ function throttle(func, delay) {
 let isObserving = false;
 
 function resizeHandler() {
+  console.log("111");
   // 大於600不觀察
   if (window.innerWidth > 600) {
     // 大於600清除active
@@ -103,7 +105,9 @@ function startBtnHandler() {
 
 // 啟動 EventListener
 function startObserving() {
-  const throttleHandler = throttle(startBtnHandler, 20);
+  // 先執行一次以確保視窗小於600時能正常執行
+  startBtnHandler();
+  const throttleHandler = throttle(startBtnHandler, 16); // 1000ms / 60hz
   window.addEventListener("scroll", throttleHandler);
   isObserving = true;
 }
@@ -114,7 +118,7 @@ function stopObserving() {
   isObserving = false;
 }
 
-const throttleHandler = throttle(resizeHandler, 100);
+const throttleHandler = throttle(resizeHandler, 16);
 window.addEventListener("resize", throttleHandler);
 resizeHandler();
 
