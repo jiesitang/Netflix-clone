@@ -226,7 +226,6 @@ section.hot-now .movie-ranking {
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  /* padding-right: 36px; */
   overflow-x: auto;
   scrollbar-width: none;
   scroll-behavior: smooth;
@@ -424,7 +423,6 @@ section.advantage-container .benefits .benefit {
 /* email */
 section.input-email {
   text-align: left;
-  /* padding-bottom: 0; */
 }
 
 .input-email h3 {
@@ -432,7 +430,6 @@ section.input-email {
 }
 
 .input-email .input-address {
-  /* padding-bottom: 3rem; */
   position: relative;
   margin-top: 1rem;
   justify-content: flex-start;

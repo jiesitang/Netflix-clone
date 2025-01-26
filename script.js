@@ -122,11 +122,11 @@ window.addEventListener("resize", throttleHandler);
 resizeHandler();
 
 // 常見問題手風琴功能
-let lastQues = null;
+
 function questionHandler(e) {
   e.preventDefault();
-  if (lastQues == this) {
-    this.classList.toggle("ques--active");
+  if (this.classList.contains("ques--active")) {
+    this.classList.remove("ques--active");
   } else {
     quesBtn.forEach((btn) => {
       btn.classList.remove("ques--active");
@@ -134,8 +134,6 @@ function questionHandler(e) {
 
     this.classList.add("ques--active");
   }
-
-  lastQues = this;
 }
 
 quesBtn.forEach((btn) => btn.addEventListener("click", questionHandler));
