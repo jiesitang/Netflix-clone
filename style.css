@@ -226,10 +226,12 @@ section.hot-now .movie-ranking {
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  overflow-x: scroll;
+  gap: 20px;
+  padding: 0 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 .movie-ranking .ranks::-webkit-scrollbar {
@@ -237,9 +239,12 @@ section.hot-now .movie-ranking {
 }
 
 .movie-ranking .ranks .rank {
+  scroll-snap-align: start;
+  /* btn寬度 + before凸出去的長度 */
+  scroll-margin-left: calc(2.25rem + 10px);
   width: 7rem;
   height: 9.8rem;
-  margin: 4.8px 10px;
+  margin: 4.8px 0;
   border-radius: 5px;
   background-color: rgb(80, 139, 159);
   position: relative;
@@ -255,7 +260,6 @@ section.hot-now .movie-ranking {
   position: absolute;
   left: -0.5rem;
   bottom: 0;
-
   color: #000;
   font-weight: 900;
   font-size: 4rem;
@@ -556,10 +560,16 @@ footer .select-wrapper {
     width: fit-content;
   }
 
+  .movie-ranking .ranks {
+    gap: 44px;
+    padding: 0 20px;
+  }
+
   .movie-ranking .ranks .rank {
     width: 8.75rem;
     height: 12.25rem;
-    margin: 6.4px 22px;
+    margin: 6.4px 0;
+    scroll-margin-left: calc(2.25rem + 20px);
   }
 
   .movie-ranking .ranks .rank::before {
@@ -625,7 +635,6 @@ footer .select-wrapper {
   .movie-ranking .ranks .rank {
     width: 11.25rem;
     height: 15.75rem;
-    margin: 6.4px 22px;
   }
 
   .movie-ranking .ranks .rank::before {
@@ -689,7 +698,7 @@ footer .select-wrapper {
   .movie-ranking .ranks .rank {
     width: 13.375rem;
     height: 18.75rem;
-    margin: 8.8px 22px;
+    margin: 8.8px 0;
   }
 
   .benefits .benefit .content h3 {
