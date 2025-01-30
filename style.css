@@ -226,9 +226,10 @@ section.hot-now .movie-ranking {
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  overflow-x: auto;
+  overflow-x: scroll;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .movie-ranking .ranks::-webkit-scrollbar {
