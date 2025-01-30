@@ -4,8 +4,9 @@ const startBtn = document.querySelector(".start-btn");
 const links = document.querySelectorAll("a");
 const movieRank = document.querySelector(".movie-ranking");
 const ranks = document.querySelector(".ranks");
-const prevBtn = document.querySelector(".prev-btn");
-const nextBtn = document.querySelector(".next-btn");
+const prevContainer = document.querySelector(".prev-btn");
+const nextContainer = document.querySelector(".next-btn");
+const rankBtn = document.querySelectorAll(".btn button");
 
 links.forEach((link) =>
   link.addEventListener("click", (e) => {
@@ -16,44 +17,40 @@ links.forEach((link) =>
 function btnRankHandler() {
   // 左邊btn 如果滑動大於0則出現 否則不出現
   if (this.scrollLeft > 0) {
-    prevBtn.style.transform = "translateX(0)";
-    // this.style.paddingLeft = "36px";
+    prevContainer.style.transform = "translateX(0)";
   } else {
-    prevBtn.style.transform = "";
-    // this.style.paddingLeft = "0px";
+    prevContainer.style.transform = "";
   }
 
   // 右邊btn 如果滑動到最右邊則不出現 否則出現
   if (this.scrollLeft + this.clientWidth >= this.scrollWidth) {
-    nextBtn.style.transform = "translateX(100%)";
-    // this.style.paddingRight = "0px";
+    nextContainer.style.transform = "translateX(100%)";
   } else {
-    nextBtn.style.transform = "";
-    // this.style.paddingRight = "36px";
+    nextContainer.style.transform = "";
   }
 }
 
-// 計算寬度加上margin
-const rankWidth = document.querySelector(".rank").offsetWidth + 20;
-
-function prevRank() {
-  ranks.scrollLeft -=
-    Math.floor(ranks.clientWidth / rankWidth) * rankWidth -
-    (ranks.scrollLeft + ranks.clientWidth >= ranks.scrollWidth ? 26 : 0);
-  // 如果滑動到最右邊就 -36+10 否則 -0
-  // 36為btn的寬度 +10為單邊margin
-}
-function nextRank() {
-  ranks.scrollLeft +=
-    Math.floor(ranks.clientWidth / rankWidth) * rankWidth -
-    (ranks.scrollLeft > 0 ? 0 : 36);
-  // 如果滑動不在最左邊就 -0 否則 -36
-  // 36為btn的寬度
-}
-
 ranks.addEventListener("scroll", btnRankHandler);
-prevBtn.addEventListener("click", prevRank);
-nextBtn.addEventListener("click", nextRank);
+
+// 計算寬度加上before突出
+const rankWidth = document.querySelector(".rank").offsetWidth + 10;
+
+function rankMoveBtn() {
+  const scrollMove = Math.floor(ranks.clientWidth / rankWidth) * rankWidth;
+  if (this.dataset.btn === "prev") {
+    ranks.scrollLeft -=
+      scrollMove -
+      (ranks.scrollLeft + ranks.clientWidth >= ranks.scrollWidth ? 26 : 0);
+    // 如果滑動到最右邊就 -36+10 否則 -0
+    // 36為btn的寬度 +10為單邊margin
+  } else {
+    ranks.scrollLeft += scrollMove - (ranks.scrollLeft > 0 ? 0 : 36);
+    // 如果滑動不在最左邊就 -0 否則 -36
+    // 36為btn的寬度
+  }
+}
+
+rankBtn.forEach((btn) => btn.addEventListener("click", rankMoveBtn));
 
 // 節流降地事件觸發頻率 減緩效能
 function throttle(func, delay) {
