@@ -58,47 +58,48 @@ rankBtn.forEach((btn) => btn.addEventListener("click", rankMoveBtn));
 
 // popup
 
-let isPopup = false;
-let popupEl;
+let isModal = false;
+let modalEl;
 
-function popupActive() {
-  popupEl = document.querySelector(`[data-no="${this.dataset.text}"]`);
-  console.log(popupEl);
-  popupEl.classList.add("popup--active");
+function modalActive() {
+  modalEl = document.querySelector(`[data-no="${this.dataset.text}"]`);
+  modalEl.classList.add("modal--active");
   body.style.overflowY = "hidden";
-  isPopup = true;
+  isModal = true;
 }
 
-function closePopup() {
-  if (!isPopup) return;
-  popupEl.classList.remove("popup--active");
+function closeModal() {
+  if (!isModal) return;
+  modalEl.classList.remove("modal--active");
   body.style.overflowY = "";
-  isPopup = false;
+  isModal = false;
 }
 
-rank.forEach((rank) => rank.addEventListener("click", popupActive));
+rank.forEach((rank) => rank.addEventListener("click", modalActive));
 
-closeBtns.forEach((btn) => btn.addEventListener("click", closePopup));
+closeBtns.forEach((btn) => btn.addEventListener("click", closeModal));
 
-overlay.addEventListener("click", closePopup);
+overlay.addEventListener("click", closeModal);
 
 // 節流降地事件觸發頻率 減緩效能
 function throttle(func, delay) {
   let lastTime = 0;
   return function (...args) {
     const now = new Date().getTime();
-    if (now - lastTime >= delay) func(...args);
-    lastTime = now;
+    if (now - lastTime >= delay) {
+      func(...args);
+      lastTime = now;
+    }
   };
 }
+
 // 紀錄是否正在觀察
 let isObserving = false;
 
 function resizeHandler() {
   // 大於600不觀察
   if (window.innerWidth > 600) {
-    // 大於600清除active
-    startBtn.classList.remove("start-btn--active");
+    console.log(">600");
     if (isObserving) {
       stopObserving();
     }
@@ -106,7 +107,8 @@ function resizeHandler() {
   }
 
   // 小於等於600且尚未觀察 啟動觀察
-  if (!isObserving) {
+  if (window.innerWidth <= 600 && !isObserving) {
+    console.log("<600");
     startObserving();
   }
 }
@@ -129,18 +131,24 @@ function startBtnHandler() {
   });
 }
 
+let scrollHandler; // 儲存節流函式
+
 // 啟動 EventListener
 function startObserving() {
   // 先執行一次以確保視窗小於600時能正常執行
   startBtnHandler();
-  const throttleHandler = throttle(startBtnHandler, 16); // 1000ms / 60hz
-  window.addEventListener("scroll", throttleHandler);
+  scrollHandler = throttle(startBtnHandler, 16); // 1000ms / 60hz
+  window.addEventListener("scroll", scrollHandler);
   isObserving = true;
 }
 
 // 移除 EventListener
 function stopObserving() {
-  window.removeEventListener("scroll", startBtnHandler);
+  startBtn.classList.remove("start-btn--active");
+  if (scrollHandler) {
+    // 清除節流函式
+    window.removeEventListener("scroll", scrollHandler);
+  }
   isObserving = false;
 }
 
