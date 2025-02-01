@@ -19,6 +19,7 @@ body {
   background-color: #000;
   color: #fff;
   font-family: "Roboto";
+  overflow-x: hidden;
 }
 
 body header {
@@ -249,6 +250,7 @@ section.hot-now .movie-ranking {
   background-color: rgb(80, 139, 159);
   position: relative;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .movie-ranking .ranks .rank:hover {
@@ -312,6 +314,117 @@ section.hot-now .movie-ranking {
 
 .movie-ranking .btn button img {
   width: 24px;
+}
+
+/* 彈出窗口 */
+.popup-container {
+  width: 100%;
+  margin: auto;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: rgb(22, 22, 22);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  display: none;
+}
+
+.popup-container.popup--active {
+  display: block;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  display: none;
+}
+
+.popup-container.popup--active ~ .overlay {
+  display: block;
+}
+
+.popup-container .pic {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(80, 139, 159);
+  position: relative;
+  overflow: hidden;
+}
+
+.popup-container .pic button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.popup-container .pic button:hover {
+  background: #989898bb;
+}
+
+.popup-container .pic button img {
+  width: 100%;
+  height: 100%;
+}
+
+.popup-container .popup-info {
+  padding: 1.5rem;
+}
+
+.popup-container .popup-info .tags {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.popup-container .popup-info span {
+  font-size: 10px;
+  padding: 3px 4px;
+  background: #414141;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.popup-container .popup-info p {
+  padding-top: 1rem;
+  font-size: 14px;
+}
+
+.popup-container .popup-info a {
+  width: 100%;
+  background: rgb(229 9 21);
+  padding: 0.7rem 1.5rem;
+  margin-top: 1.5rem;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.popup-container .popup-info a:hover {
+  background: rgb(194, 10, 19);
+}
+
+.popup-container .popup-info a img {
+  width: 1.5rem;
 }
 
 /* 好處說不完 */
@@ -520,6 +633,37 @@ footer .select-wrapper {
   footer .link-container {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .popup-container {
+    max-width: 41rem;
+  }
+
+  .popup-container .pic {
+    height: 375px;
+  }
+
+  .popup-container .popup-info {
+    padding: 1rem 2.5rem;
+  }
+
+  .popup-container .popup-info span {
+    font-size: 14px;
+  }
+
+  .popup-container .popup-info p {
+    font-size: 1rem;
+  }
+
+  .popup-container .popup-info a {
+    max-width: 100px;
+    height: 40px;
+    margin-top: 2.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .popup-container .popup-info a img {
+    width: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 960px) {
@@ -603,6 +747,10 @@ footer .select-wrapper {
   footer .link-container {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .popup-container .popup-info .tags {
+    margin-bottom: 8px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -665,6 +813,10 @@ footer .select-wrapper {
 
   footer .link-container {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .popup-container .popup-info .tags {
+    margin-bottom: 12px;
   }
 }
 

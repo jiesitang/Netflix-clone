@@ -1,12 +1,16 @@
+const body = document.querySelector("body");
 const quesBtn = document.querySelectorAll("li .ques");
 const inputEmail = document.querySelectorAll(".input-address");
 const startBtn = document.querySelector(".start-btn");
 const links = document.querySelectorAll("a");
 const movieRank = document.querySelector(".movie-ranking");
 const ranks = document.querySelector(".ranks");
+const rank = document.querySelectorAll(".rank");
 const prevContainer = document.querySelector(".prev-btn");
 const nextContainer = document.querySelector(".next-btn");
 const rankBtn = document.querySelectorAll(".btn button");
+const closeBtns = document.querySelectorAll(".pic button");
+const overlay = document.querySelector(".overlay");
 
 links.forEach((link) =>
   link.addEventListener("click", (e) => {
@@ -51,6 +55,32 @@ function rankMoveBtn() {
 }
 
 rankBtn.forEach((btn) => btn.addEventListener("click", rankMoveBtn));
+
+// popup
+
+let isPopup = false;
+let popupEl;
+
+function popupActive() {
+  popupEl = document.querySelector(`[data-no="${this.dataset.text}"]`);
+  console.log(popupEl);
+  popupEl.classList.add("popup--active");
+  body.style.overflowY = "hidden";
+  isPopup = true;
+}
+
+function closePopup() {
+  if (!isPopup) return;
+  popupEl.classList.remove("popup--active");
+  body.style.overflowY = "";
+  isPopup = false;
+}
+
+rank.forEach((rank) => rank.addEventListener("click", popupActive));
+
+closeBtns.forEach((btn) => btn.addEventListener("click", closePopup));
+
+overlay.addEventListener("click", closePopup);
 
 // 節流降地事件觸發頻率 減緩效能
 function throttle(func, delay) {
