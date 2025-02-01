@@ -56,8 +56,7 @@ function rankMoveBtn() {
 
 rankBtn.forEach((btn) => btn.addEventListener("click", rankMoveBtn));
 
-// popup
-
+// modal
 let isModal = false;
 let modalEl;
 
